@@ -125,27 +125,42 @@ When(/^I input State$/, () => {
 });
 
 When(/^I click on Debit and Credit Card$/, () => {
-	cy.get('input#payment_method_yith-stripe').should('be.visible').ckick({ force: true })
-	});
+	// cy.get('input#payment_method_yith-stripe').should('be.visible').ckick({ force: true })
+	// });
+	cy.fixture('selectors.json').then((sel) => {
+		cy.typeText(sel.cardNumberField, sel.cardNumberText)
+		cy.typeText(sel.expireationDateFiled, sel.expireationDateText)
+		cy.typeText(sel.securityCodeField, sel.securityCodeText)
+	})
+	//cy.get('input#payment_method_yith-stripe[value="yith-stripe"]').click()
+	// Scroll down to the radio button
+//cy.scrollTo('bottom');
+
+// Click on the radio button
+//cy.get('input[type="radio"][value="yith-stripe"]').click();
+
+//cy.get('input[value="yith-stripe"]').click()
+	// cy.scrollTo('bottom')
+	// cy.contains('Debit and Credit Card')
+	// cy.contains('label[for="payment_method_yith-stripe"]').find('input[value="yith-stripe"]').should(be.checked)
+	// cy.scrollIntoView()
+	// cy.click()
+	//cy.get('#payment_method_yith-stripe').click({force: true})
+})
 
 When(/^I inpute card details$/, () => {
-	// cy.fixture('selectors.json').then((sel) => {
-	// 	cy.typeText(sel.cardNumberField, sel.cardNumberText)
-	// 	cy.typeText(sel.expireationDateFiled, sel.expireationDateText)
-	// 	cy.typeText(sel.securityCodeField, sel.securityCodeText)
-	// })
-	// cy.contains('label','[for="payment_method_yith-stripe"]').find('input[value="yith-stripe"]').check({force: true})
-
-	cy.scrollTo('bottom')
-	cy.contains('Debit and Credit Card')
-	cy.contains('label[for="payment_method_yith-stripe"]').find('input[value="yith-stripe"]').should(be.checked)
-	cy.scrollIntoView()
-	cy.click()
+	cy.fixture('selectors.json').then((sel) => {
+		cy.typeText(sel.cardNumberField, sel.cardNumberText)
+		cy.typeText(sel.expireationDateFiled, sel.expireationDateText)
+		cy.typeText(sel.securityCodeField, sel.securityCodeText)
+	})
 });
 
 
 When(/^I click on Proceed to Pay$/, () => {
-	return true;
+	cy.fixture('selectors.json').then((sel) => {
+		cy.clickAnElement(sel.placeorderButton)
+	})
 });
 
 Then(/^I should see the price of the first available flight$/, () => {
