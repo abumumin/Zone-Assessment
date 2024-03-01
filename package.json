@@ -1,0 +1,21 @@
+{
+  "name": "assessment",
+  "version": "1.0.0",
+  "description": "Zone Assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Web",
+    "UI",
+    "Automation"
+  ],
+  "author": "Mumin Abubakar",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress": "^13.6.6"
+  }
+}
